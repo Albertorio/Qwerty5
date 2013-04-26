@@ -1,0 +1,36 @@
+<!doctype html>
+<html ng-app="app">
+  <header>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.js"></script>
+    <script language="javascript" type="text/javascript">
+      angular.module('app', []);
+      
+      //Whatever you put on the controller scope,
+      //will be availalble in the HTML element bound to the controller.
+      function MyController($scope){
+        $scope.newMessage = "Hi";
+        $scope.message = ["What's up?"]
+        
+        $scope.add = function(){
+          $scope.messages.push($scope.newMessage);
+        };
+      }
+    </script>
+  </header>
+  
+  <body ng-controller="MyController">
+    What you up to? <br>     
+    <input type="text" ng-model="newMessage">
+    <input type="submit" ng-click="add()" value="Update">
+    <br>
+    <a href="Pics.html">Pictures</a> or <a href="Videos.html">Video</a> <br>
+    Updates: <br>
+    <ul>
+      <li ng-repeat="message in messages">
+        {{message}}
+      </li>
+    </ul>
+    
+  </body>
+  
+</html>
